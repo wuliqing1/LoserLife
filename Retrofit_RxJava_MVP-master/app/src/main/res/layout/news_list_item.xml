@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.example.y.mvp.utils.TimeUtils" />
+
+        <import type="com.example.y.mvp.network.Api" />
+        <variable
+            name="newsListInfo"
+            type="com.example.y.mvp.mvp.Bean.NewsListInfo" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/image_detail_margin"
+        android:layout_marginEnd="@dimen/image_detail_margin"
+        android:layout_marginStart="@dimen/image_detail_margin"
+        android:layout_marginTop="@dimen/image_detail_margin"
+        app:cardCornerRadius="@dimen/image_detail_margin">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/clockBackground">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="@dimen/news_image_width"
+                android:layout_height="@dimen/news_image_height"
+                android:layout_centerVertical="true"
+                android:scaleType="centerCrop"
+                app:image="@{Api.IMAGER_URL + newsListInfo.img}"
+                tools:ignore="ContentDescription" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/tv_marginLeft"
+                android:layout_toRightOf="@+id/image"
+                tools:ignore="RtlHardcoded">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/clockBackground"
+                    android:ellipsize="end"
+                    android:padding="@dimen/image_list_padding"
+                    android:textAppearance="@android:style/TextAppearance.Medium"
+                    android:text="@{newsListInfo.title}"
+                    android:textColor="?attr/clockTextColor" />
+
+                <TextView
+                    android:id="@+id/tv_url"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/clockBackground"
+                    android:padding="@dimen/image_list_padding"
+                    android:textColor="?attr/clockTextColor"
+                    android:text="@{newsListInfo.fromurl}"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/tv_title"
+                    android:background="?attr/clockBackground"
+                    android:padding="@dimen/image_list_padding"
+                    android:textColor="?attr/clockTextColor"
+                    android:text="@{TimeUtils.getDateToString(newsListInfo.time)}"
+                    tools:ignore="RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/tv_fromname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toLeftOf="@id/tv_time"
+                    android:background="?attr/clockBackground"
+                    android:padding="@dimen/image_list_padding"
+                    android:text="@{newsListInfo.fromname}"
+                    android:textColor="?attr/clockTextColor" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>
