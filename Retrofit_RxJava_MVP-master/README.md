@@ -3,7 +3,7 @@ Network uses Retrofit and RxJava With MVP architecture
 
 Recent rxjava very fire, and then try to combine rxjava and Retrofit wrote a Demo, and try the next mvp
 
-![](https://github.com/blackCave/Retrofit_RxJava_MVP/blob/master/image/C.gif)
+#![](https://github.com/blackCave/Retrofit_RxJava_MVP/blob/master/image/C.gif)
 
 Thanks tngou api interface [http://www.tngou.net/doc/gallery](http://www.tngou.net/doc/gallery)
 
